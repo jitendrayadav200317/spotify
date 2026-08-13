@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("/api", authRouter);
-app.use("/api", musicRouter);
+app.use("/auth", authRouter);
+app.use("/music", musicRouter);
 
 export default app;
