@@ -1,17 +1,17 @@
-import imageKit from "@imagekit/nodejs";
-import dotenv from "dotenv"
-dotenv.config()
+import ImageKit from "@imagekit/nodejs";
+import dotenv from "dotenv";
+dotenv.config();
 
-const imageKitClinet = new imageKit({
+const imageKitClient = new ImageKit({
   privateKey: process.env.IMAGEKIT_PRAVIT_KEY,
 });
-async function uplodaFile(buffer) {
-  const result = await imageKitClinet.files.update({
-    file: buffer.toString("bade64"),
-    fileName: "music_" + Data.now(),
+async function uploadFile(buffer) {
+  const result = await imageKitClient.files.upload({
+    file: buffer.toString("base64"),
+    fileName: "music_" + Date.now(),
     folder: "music",
   });
   return result;
 }
 
-export default uplodaFile;
+export default uploadFile;

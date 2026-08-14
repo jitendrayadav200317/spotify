@@ -6,8 +6,8 @@ import bcrypt from "bcryptjs";
 
 export const register = async (req, res) => {
   try {
-    const { username, email, password } = req.body;
-    const role = "user";
+    const { username, email, password, role } = req.body;
+  
     const isUser = await userModel.findOne({
       $or: [{ username }, { email }],
     });
